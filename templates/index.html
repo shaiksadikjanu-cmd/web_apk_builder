@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web to APK Builder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Web to APK Converter</h1>
+        <p>Turn any website into a fully functional Android App</p>
+        
+        <form action="/build" method="POST" enctype="multipart/form-data" id="apkForm">
+            <div class="form-group">
+                <label>App Name:</label>
+                <input type="text" name="app_name" placeholder="MyAwesomeAPP" required>
+            </div>
+
+            <div class="form-group">
+                <label>Website URL:</label>
+                <input type="url" name="app_url" placeholder="https://www.example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>App Icon (.png):</label>
+                <input type="file" name="app_logo" accept="image/png" required>
+            </div>
+
+            <div class="form-group">
+                <label>Splash Screen Logo (.png):</label>
+                <input type="file" name="splash_logo" accept="image/png" required>
+            </div>
+
+            <div class="form-group">
+                <label>Splash Screen Background (.png):</label>
+                <input type="file" name="splash_bg" accept="image/png" required>
+            </div>
+
+            <div class="form-group">
+                <label>Splash Screen Timer (Seconds):</label>
+                <input type="number" name="splash_time" value="3" min="1" max="10" required>
+            </div>
+
+            <button type="submit" id="buildBtn">Build & Download APK</button>
+        </form>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Building your APK... This might take a minute.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

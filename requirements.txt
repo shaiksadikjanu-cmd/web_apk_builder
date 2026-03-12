@@ -1,0 +1,6 @@
+flask
+flask-socketio
+google-api-python-client
+google-auth-oauthlib
+docker
+webtoapklib
